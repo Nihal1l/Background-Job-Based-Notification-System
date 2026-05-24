@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_celery_beat',
     'notifications',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +145,13 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=3000000000),
+
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365),
 }
