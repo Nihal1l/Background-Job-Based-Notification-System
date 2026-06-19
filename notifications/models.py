@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import User
 
 
@@ -43,3 +42,10 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+
+        indexes = [
+            models.Index(fields=['status']),
+            models.Index(fields=['scheduled_time']),
+        ]    
